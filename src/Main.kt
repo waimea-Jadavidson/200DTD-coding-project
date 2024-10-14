@@ -1,13 +1,13 @@
 /**
  * ------------------------------------------------------------------------
- * PROJECT NAME HERE
+ * Mancala Rip-Off
  * Level 2 programming project
  *
- * by YOUR NAME HERE
+ * by Jasper Davidson
  *
- * BRIEF PROJECT DESCRIPTION HERE
- * BRIEF PROJECT DESCRIPTION HERE
- * BRIEF PROJECT DESCRIPTION HERE
+ *
+ *
+ *
  * ------------------------------------------------------------------------
  */
 
@@ -16,6 +16,16 @@
  * Program entry point
  */
 fun main() {
-    println("Hello World!")
+    initBoard() // Menu entry point for game
 }
 
+fun menu(){
+
+}
+
+fun initBoard(){
+    val squares = arrayOf("[O]", "[C]", "[G]") // Comment
+    print("Board Size: ")
+    val bLength = readLine().toInt()
+    for ()
+}
