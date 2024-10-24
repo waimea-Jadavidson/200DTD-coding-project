@@ -23,15 +23,15 @@ fun main() {
 
 fun initBoard(bSize: Int, bCoin: Int): MutableList<String>{  // Function takes in board size and number of coins
     val board = mutableListOf<String>()
-    println(bSize-(bSize/bCoin))
+    // println(bSize-(bSize/bCoin)) This was used for debug purposes
     for(i in 1 .. bSize-(bSize/bCoin)){
-        board.add(0, "[_]")
+        board.add("[_]")
     }
-    println(bSize/bCoin)
+    // println(bSize/bCoin)
     for(i in 1..<(bSize/bCoin)){
-        board.add(0, "[C]")
+        board.add("[C]")
     }
-    board.add(0, "[G]")
+    board.add("[G]")
     board.shuffle()
     return board
 }
@@ -43,16 +43,16 @@ fun game(board: MutableList<String>){
         var s1: Int
         var s2: Int
 
-        var count: Int
+
 
         println("Player One") // Need to make this dynamic
         println(board.joinToString(""))
         println()
         while(true){
-            print("Slot 1: ")
-            s1 = readln().toInt()
+            print("Which coin to move: ")
+            s1 = readln().toInt()-1
 
-            if(board[s1-1] == "[C]" || board[s1-1] == "[G]"){  // -1 added to deal with zero error
+            if(board[s1] == "[C]" || board[s1] == "[G]"){  // -1 added to deal with zero error
                 break
             }
             println(board[s1])
@@ -61,25 +61,26 @@ fun game(board: MutableList<String>){
 
         while(true) {
             println()
-            print("Slot 2: ")
-            s2 = readln().toInt()
+            print("Move it to where: ")
+            s2 = readln().toInt()-1
 
-            if (board[s2-1] == "[C]" || board[s2-1] == "[G]") { // -1 added to deal with zero error
-                break
+            if (board[s2] == "[_]") { // -1 added to deal with zero error
+                var coinCount = 0
+                for (i in s1-1 downTo s2){
+                    if (board[i] != "[_]"){
+                        coinCount++
+                    }
+                }
+                if (coinCount == 0) {
+                    break
+                }
             }
-            println(board[s2])
             println("Invalid Move, Try Again!")
         }
 
-        for (i in s1-1 downTo s2-1){
-            if (board[i] == "[_]"){
-                count +=1
-            }
-            else{
-                print("Invalid Move, Try Again!")
-                break
-            }
-        }
+        board[s2] = board[s1]
+        board[s1] = "[_]"
+
 
     }
 
