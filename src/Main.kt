@@ -18,13 +18,23 @@
 
 // Global Variables
 val SPACE = "[ ]"
+val GOLD = "[G]"
+val COIN = "[C]"
 
 
 fun main() {
     val grid = initBoard(10,2) // Stores game board
+    var round = 0
+    println("WELCOME TO MANCALA RIP-OFF")
+    println()
+    val players = playerNames()
     while (true) {
         displayBoard(grid)
-        if (playerMove(grid) == "WIN") break
+        if (playerMove(grid, players, round) == "WIN") break
+        round ++
+        if(round == players.size){
+            round = 0
+        }
     }
 
     println("Congrats Player {Insert Name Here}, you have won") // Need to do dynamic player count
@@ -38,9 +48,9 @@ fun initBoard(bSize: Int, bCoin: Int): MutableList<String>{  // Function takes i
     }
     // println(bSize/bCoin)
     for(i in 1..<(bSize/bCoin)){
-        board.add("[C]")
+        board.add(COIN)
     }
-    board.add("[G]")
+    board.add(GOLD)
     board.shuffle()
     return board
 }
@@ -54,19 +64,33 @@ fun displayBoard(board: MutableList<String>){
     println()
 }
 
-fun playerMove(board: MutableList<String>): String {
+fun playerNames(): MutableList<String>{
+    val players = mutableListOf<String>()
+    print("Number of Players: ")
+    val playerCount = readln().toInt()
+    repeat(playerCount){ i ->
+        print("Player ${i+1}: ")
+        players.add(i, readln())
+    }
+    return players
+}
+
+fun playerMove(board: MutableList<String>, player: MutableList<String>, round: Int): String {
         // Variable decleration for local use inside of function
         var s1: Int
         var s2: Int
 
-        println("Player One") // Need to make this dynamic
+        println("Player ${player[round]}") // Need to make this dynamic
         println()
         while(true){
             print("Which coin to move/remove: ")
             s1 = readln().toInt()-1
 
-            if(board[s1] == "[C]" || board[s1] == "[G]"){  // -1 added to deal with zero error
-                break
+
+            if(board[s1] == COIN || board[s1] == GOLD){  // -1 added to deal with zero error
+                if(board[s1-1] == "[ ]"){
+                    break
+                }
             }
             println("Invalid Move, Try Again!")
         }
@@ -74,7 +98,7 @@ fun playerMove(board: MutableList<String>): String {
         // Are we removing a coin?
         if(s1 == 0) {
             // Yes, so check if it's gold
-            if(board[0] == "[G]") {
+            if(board[0] == GOLD) {
                 // It is, so we're done
                 return "WIN"
             }
@@ -88,7 +112,7 @@ fun playerMove(board: MutableList<String>): String {
                 print("Move it to where: ")
                 s2 = readln().toInt() - 1
 
-                if (board[s2] == SPACE) {
+                if (board[s2] == SPACE && s2 < s1) {
                     var coinCount = 0
                     for (i in s1 - 1 downTo s2) {
                         if (board[i] != SPACE) {
