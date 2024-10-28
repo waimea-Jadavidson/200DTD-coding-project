@@ -65,12 +65,31 @@ fun displayBoard(board: MutableList<String>){
 }
 
 fun playerNames(): MutableList<String>{
-    val players = mutableListOf<String>()
-    print("Number of Players: ")
-    val playerCount = readln().toInt()
-    repeat(playerCount){ i ->
-        print("Player ${i+1}: ")
-        players.add(i, readln())
+    var players = mutableListOf<String>()
+    var playerCount: String
+    var numOfPlayers: Int
+    while (true) {
+        print("Number of Players: ")
+        playerCount = readln()
+        playerCount.toIntOrNull()
+        if (playerCount != null){
+            playerCount.toInt()
+            numOfPlayers = playerCount.toInt()
+            break
+        }
+    }
+    repeat(numOfPlayers){ i ->
+        while (true) {
+            print("Player ${i + 1}: ")
+            val name = readln()
+            if (!name.isBlank()){
+                players.add(name)
+                break
+            }
+            else{
+                println("Empty is not a valid name, please try again")
+            }
+        }
     }
     return players
 }
@@ -88,9 +107,7 @@ fun playerMove(board: MutableList<String>, player: MutableList<String>, round: I
 
 
             if(board[s1] == COIN || board[s1] == GOLD){  // -1 added to deal with zero error
-                if(board[s1-1] == "[ ]"){
                     break
-                }
             }
             println("Invalid Move, Try Again!")
         }
