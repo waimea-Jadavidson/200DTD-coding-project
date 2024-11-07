@@ -165,4 +165,4 @@ Through out demonstration, board is never shown to have gold coin in slot 1 maki
 This was added purposely.
 
 ### Win Statement
-
+[win.mp4](media%2Fwin.mp4)
