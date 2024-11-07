@@ -1,6 +1,6 @@
-# PROJECT NAME HERE
+# Mancala Rip-Off
 
-### Level 2 Programming Project by YOUR NAME HERE
+### Level 2 Programming Project by Jasper Davidson
 
 This project is assessed against [AS91896](https://www.nzqa.govt.nz/nqfdocs/ncea-resource/achievements/2019/as91896.pdf)
 

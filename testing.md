@@ -136,38 +136,33 @@ If player makes a winning move, the game handles correctly without errors
 
 ## Evidence / Results of Testing
 
-### TEST NAME HERE
+### Number of Players
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+[NumPlayers.mp4](media%2FNumPlayers.mp4)
 
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+Expected outcomes were shown as expected
 
 
-### TEST NAME HERE
+### Player Names
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+[playerNames.mp4](media%2FplayerNames.mp4)
 
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+Expected outcomes were shown as expected
 
 
-### TEST NAME HERE
+### Player Names and Round Looping
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+[roundLooping.mp4](media%2FroundLooping.mp4)
 
-![](images/placeholder.jpg)
-
-NOTES REGARDING THE RESULTS HERE
+Expected outcomes were shown as expected
 
 
-### TEST NAME HERE
+### Removing and Moving of coins/gold
 
-ACTUAL RESULTS OF TESTING SHOWN HERE
+[movingCoins.mp4](media%2FmovingCoins.mp4)
 
-![](images/placeholder.jpg)
+Through out demonstration, board is never shown to have gold coin in slot 1 making a game invalid.
+This was added purposely.
 
-NOTES REGARDING THE RESULTS HERE
+### Win Statement
 
