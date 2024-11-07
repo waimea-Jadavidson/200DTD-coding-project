@@ -39,7 +39,7 @@ fun main() {
         }
     }
 
-    println("Congrats, you have won")
+    println("Congrats ${players[round]}, you have won!")
 }
 
 fun initBoard(bSize: Int, bCoin: Int): MutableList<String>{  // Function takes in board size and number of coins
