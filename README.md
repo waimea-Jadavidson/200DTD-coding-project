@@ -8,11 +8,11 @@ This project is assessed against [AS91896](https://www.nzqa.govt.nz/nqfdocs/ncea
 
 The project involves the programming of a two-player game.
 
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-BRIEF PROJECT DESCRIPTION HERE
-
+This project is about the programming of the two or more player game 'Old Gold'.
+The game is played on a one line grid with coins randomly placed across it.
+Players take turns moving a coin any amount of spaces to the left without jumping over other coins.
+If a coin/gold coin is in the first slot it can be removed from the board.
+The player to remove the gold coin from the board is the winner.s
 
 ## Source Code
 
